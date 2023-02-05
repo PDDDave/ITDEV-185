@@ -54,7 +54,7 @@ void gatherInfo() {
 }
 
 //all calculations done in this fucntion.
-void calculateCosts(int inv, int ord, double shipMod) {
+void calculateCosts(int inv, int ord, double shipMod = 10) {
 	int backOrder = 0;
 	int currentShipment = 0;
 	double spoolCharge = 0;
