@@ -1,0 +1,3 @@
+﻿  Reel.cpp
+F:\Code\School\MATC\ITDEV-185\ITDEV-185\charles_Assignment5\Reel.cpp(17,16): warning C4244: 'initializing': conversion from 'time_t' to 'unsigned int', possible loss of data
+  charles_Assignment5.vcxproj -> F:\Code\School\MATC\ITDEV-185\ITDEV-185\charles_Assignment5\x64\Debug\charles_Assignment5.exe
