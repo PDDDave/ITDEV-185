@@ -67,9 +67,11 @@ int main()
 
     if (balance == 1.00) {
         cout << "Congratulations!  You have won!  Your balance is exactly: " << balance << endl;
+        system("pause");
     }
     else {
         cout << "\n\nOh no, you went bust! Your balance is: $" << balance << endl;
+        system("pause");
     }
 
 
