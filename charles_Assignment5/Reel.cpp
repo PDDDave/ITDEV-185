@@ -1,23 +1,23 @@
 #include "Reel.h"
-#include <windows.h>
-#include <cstdlib>
-#include <ctime>
+#include <random>
 #include <iostream>
 
 
 //Reel implementation file
 
 
-//default constructor
-Reel::Reel() {
-
+//constructor, assigns the position of the reel  (not used, but included as it was in the diagram)
+Reel::Reel(int pos) {
+	position = pos;
 }
 
+//The spin method generates a random number using the <random> library
 void Reel::spin() {
-	unsigned seed = time(0);
-	srand(seed);
+	std::random_device rd;  //random engine device
+	std::uniform_int_distribution<int> dist(0, 19); //rang of values to be sleected 0-19 reflecting the subscript of the faces array.
 
-	cout << rand() << " ";
+	//the random generator is passed into the distribution object, and the value (0-19) becomes the subscript of the faces array.
+	selectedFace = faces[dist(rd)];  
 }
 
 

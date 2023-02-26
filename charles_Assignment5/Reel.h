@@ -3,7 +3,7 @@
 using namespace std;
 
 /*Header file for the Reel Class*/
-class Reel
+class 
 {
 	private: 
 		std::string selectedFace;
@@ -12,7 +12,7 @@ class Reel
 		int position;
 
 	public:
-		Reel();
+		Reel(int);
 		std::string getFace();
 		int getPosition();
 		void spin();
