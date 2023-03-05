@@ -6,9 +6,13 @@
 //Reel implementation file
 
 
-//constructor, assigns the position of the reel  (not used, but included as it was in the diagram)
+//constuctor accepts the position of the reel
 Reel::Reel(int pos) {
 	position = pos;
+}
+
+Reel::Reel() {
+
 }
 
 //The spin method generates a random number using the <random> library
@@ -17,7 +21,7 @@ void Reel::spin() {
 	std::uniform_int_distribution<int> dist(0, 19); //rang of values to be sleected 0-19 reflecting the subscript of the faces array.
 
 	//the random generator is passed into the distribution object, and the value (0-19) becomes the subscript of the faces array.
-	selectedFace = faces[dist(rd)];  
+	selectedFace = faces[dist(rd)];
 }
 
 
