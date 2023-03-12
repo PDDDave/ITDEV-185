@@ -1,11 +1,11 @@
 #pragma once
 #include <string>
 /*
-* This is the header file for the Item abstact class.
+* This is the header file for the Item base class.
 */
 class Item
 {
-	//protected variables, child items may access
+	//protected variables, child classes may access
 	protected:  
 		static double delivery;
 		static double tip;

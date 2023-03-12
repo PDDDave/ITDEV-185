@@ -4,6 +4,8 @@
 * MidTerm
 */
 
+//This is the main class of the Midterm application
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -14,8 +16,10 @@ using namespace std;
 
 //function prototypes
 void menu1();		// first menu
-void menu2();   // second menu
-void freshProduce();
+bool menu2();   // second menu
+
+//sub menus
+void freshProduce();  
 void meatSeafood();
 void frozenFoods();
 
@@ -23,20 +27,22 @@ void frozenFoods();
 string line = "*********************************";
 string directions = "Enter one of the corresponding options below:\n";
 bool pickup = false;  //if false, delivery
-vector<Item*> cart;
+vector<Item*> cart;  //vector array of Item pointers
+
+
 
 //functions
-
-
-
 int main()
 {
 	bool cont = true;
-	//launches firs menu
+	//launches first menu
 	menu1();
 
 	//loops through the next set of menus until checkout
-	do { menu2(); } while (cont);
+	do { cont = menu2(); } while (cont);
+
+	cout << "Thank you for shopping!" << endl;
+	exit(0);
 	
 }
 
@@ -57,7 +63,7 @@ void menu1() {
 
 		cin >> response;
 		
-	} while (response != "1" && response != "2" && response != "5");
+	} while (response != "1" && response != "2" && response != "5");  //loops until input is acceptable
 
 
 	if (response == "1") {
@@ -74,9 +80,9 @@ void menu1() {
 	}
 }
 
-void menu2() {
+bool menu2() {
 	std::string response = "";
-
+	bool cont = true;
 
 	do {
 		//clear screen and print menu
@@ -91,7 +97,7 @@ void menu2() {
 
 		cin >> response;
 
-	} while (response != "1" && response != "2" && response != "3" && response != "4");
+	} while (response != "1" && response != "2" && response != "3" && response != "4");  //loops until input is acceptable
 
 	if (response == "1") {
 		freshProduce();
@@ -103,29 +109,37 @@ void menu2() {
 		frozenFoods();
 	}
 	else {
+		double total = 0.0;
+
+		//if checkout is reached without items being added to the cart
+		if (cart.empty()) {
+			cout << "Sorry you didn't find what you're looking for.  Come back again!" << endl;
+			exit(0);
+		}
 		//checkout
 		system("cls");
-		double total = 0.0;
 		
+		//print reciept
 		cout << fixed << showpoint << setprecision(2);
 		cout << "\t\tReciept" << endl;
 		cout << line << endl;
-		cout << left << setw(20) << "Item Name" << left << setw(25) << "Item Total" << endl;
+		cout << left << setw(20) << "Item Name" << left << setw(30) << "Item Total" << endl;
 		cout << line << endl;
 
 		//process each item in cart
 		for (int i = 0; i < cart.size(); i++) {
-			cout << left << setw(20) << cart[i]->getName() << right << setw(5) << "$" << cart[i]->getPrice() << endl;
+			cout << left << setw(20) << cart[i]->getName() << right << setw(5) << "$" << right << setw(6)<< cart[i]->getPrice() << endl;
 
 			//add cost of item to toal
 			total += cart[i]->getPrice();
 		}
 
-		if (cart.front()->getDelivery() > 0) {
+		if (cart.front()->getDelivery() > 0) { //if the fee was set to be higher than 0 (!pickup in constructor)
 			cout << "\n" << endl;
-			cout << right << setw(20) <<"TIP: $" << right << setw(5) << cart[0]->getTip() << endl;
-			cout << right << setw(20) <<"DELIVERY: $" << right << setw(5) << cart[0]->getDelivery() << endl;
+			cout << right << setw(20) <<"TIP: $" << right << setw(5) << cart.front()->getTip() << endl;
+			cout << right << setw(20) <<"DELIVERY: $" << right << setw(5) << cart.front()->getDelivery() << endl;
 
+			//add tip and delivery fee to total
 			total += cart.front()->getTip();
 			total += cart.front()->getDelivery();
 		}
@@ -136,10 +150,10 @@ void menu2() {
 		cout << line << endl;
 		cout << line << endl;
 
-		cout << "Thank you for shopping!" << endl;
-		system("pause");
-		exit(0);
+		cont = false;
 	}
+
+	return cont;
 }
 
 void frozenFoods() {
@@ -160,15 +174,16 @@ void frozenFoods() {
 
 		cin >> response;
 
-	} while (response != "1" && response != "2" && response != "3" && response != "4");
+	} while (response != "1" && response != "2" && response != "3" && response != "4");  
 
 	cout << "How many would you like?" << endl;
 	cin >> quantity;
 
 	if (response == "1") {
+		//create pointer object and assign memory then push pointer to end of cart vector
 		MeasuredProduct* p = NULL;
 		p = new MeasuredProduct("Waffles", 6.99, quantity, pickup);
-		p->calcPrice();
+		p->calcPrice();//update price from per pound to total price
 		cart.push_back(p);
 
 	}
@@ -208,15 +223,17 @@ void meatSeafood() {
 
 		cin >> response;
 
-	} while (response != "1" && response != "2" && response != "3" && response != "4");
+	} while (response != "1" && response != "2" && response != "3" && response != "4");  //loops until input is acceptable
 
 	cout << "How many pounds would you like?" << endl;
 	cin >> pounds;
 
 	if (response == "1") {
+
+		//create pointer object and assign memory then push pointer to end of cart vector
 		FreshProduce* p = NULL;
 		p = new FreshProduce("Whole chicken", 6.99, pounds, pickup);
-		p->calcPrice();
+		p->calcPrice();  //update price from per pound to total price
 		cart.push_back(p);
 	}
 	else if (response == "2") {
@@ -232,6 +249,7 @@ void meatSeafood() {
 		cart.push_back(p);
 	}
 	else {
+		//returns to previous menu (menu2)
 		return;
 	}
 }
@@ -260,9 +278,10 @@ void freshProduce() {
 	cin >> pounds;
 
 	if (response == "1") {
+		//create pointer object and assign memory then push pointer to end of cart vector
 		FreshProduce* p = NULL;
 		p = new FreshProduce("Galla Apples", 3.99, pounds, pickup);
-		p->calcPrice();
+		p->calcPrice(); //update price from per pound to total price
 		cart.push_back(p);
 	}
 	else if (response == "2") {
@@ -274,10 +293,11 @@ void freshProduce() {
 	else if (response == "3") {
 		FreshProduce* p = NULL;
 		p = new FreshProduce("Grapes", 2.99, pounds, pickup);
-		p->calcPrice();
+		p->calcPrice(); 
 		cart.push_back(p);
 	}
 	else {
+		//returns to previous menu (menu2)
 		return;
 	}
 }

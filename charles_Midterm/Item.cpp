@@ -1,7 +1,7 @@
 #include "Item.h"
 
 /*
-* This is the implementation file for the item abstract class.
+* This is the implementation file for the item base  class.
 */
 
 //Default constructor
@@ -12,10 +12,12 @@ Item::Item() {
 	price = 0.00;
 }
 
-//declare static variables outside ofclass definition, but inside of namespace.
+//declare static variables outside of class definition, but inside of namespace.
 double Item::delivery = 0;
 double Item::tip = 0;
 
+
+//Mutators
 void Item::setDelivery(double delivery) {
 	this->delivery = delivery;
 }
@@ -32,6 +34,7 @@ void Item::setTip(double tip) {
 	this->tip = tip;
 }
 
+//Accessors
 double Item::getDelivery() {
 	return delivery;
 }

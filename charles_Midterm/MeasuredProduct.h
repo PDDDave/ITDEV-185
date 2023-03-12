@@ -1,6 +1,8 @@
 #pragma once
 #include "Item.h"
-//MeasuredProduct Header file
+
+//This is the header file for the MeasuredProduct derived class
+
 class MeasuredProduct :
     public Item
 {

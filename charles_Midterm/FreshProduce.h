@@ -1,5 +1,8 @@
 #pragma once
 #include "Item.h"
+
+//this is the header file for the FrehsProduce derived class.
+
 class FreshProduce :
     public Item
 {
