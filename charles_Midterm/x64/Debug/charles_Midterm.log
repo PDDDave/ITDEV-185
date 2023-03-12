@@ -1,0 +1,5 @@
+﻿  charles_Midterm.cpp
+F:\Code\School\MATC\ITDEV-185\ITDEV-185\charles_Midterm\charles_Midterm.cpp(170,44): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+F:\Code\School\MATC\ITDEV-185\ITDEV-185\charles_Midterm\charles_Midterm.cpp(178,42): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+F:\Code\School\MATC\ITDEV-185\ITDEV-185\charles_Midterm\charles_Midterm.cpp(184,46): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  charles_Midterm.vcxproj -> F:\Code\School\MATC\ITDEV-185\ITDEV-185\charles_Midterm\x64\Debug\charles_Midterm.exe
