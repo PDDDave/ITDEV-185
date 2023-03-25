@@ -3,7 +3,7 @@
 class Die
 {
 
-	/*This is the header for the Die base class*/
+	/*This is the header for the Die abstract class*/
 
 	//protected member variables, child classes may access
 	protected: 
@@ -18,7 +18,7 @@ class Die
 		int getSides();
 		void setName(std::string);
 		void setSides(int);
-		virtual std::string roll();  //virtual method, will be overwritten in derrived class
-		virtual std::string getFaces(); //virtual method, will be overwritten in derrived class
+		virtual std::string roll() = 0;  //virtual method, will be overwritten in derrived class (pure virtual function)
+		virtual std::string getFaces() = 0; //virtual method, will be overwritten in derrived class (pure virtual function)
 };
 

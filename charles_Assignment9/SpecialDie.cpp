@@ -2,9 +2,11 @@
 #include "random"
 #include <iostream>
 
+/*This is the implementation file for the SpecialDie derrived class*/
+
 //int array holding 20 ASCII values, enough for each face on a D20
 int symbols[] = { 157,245,246,254,244,241,240,231,190,201,206,195,184,178,169,168,146,156,189,158 };
-std::string faces = "";
+
 
 
 /*The roll function in this derrived class is an example of polymorphism.The name of the method is the same as its counterpart in the base class
@@ -33,6 +35,7 @@ std::string SpecialDie::roll() {
 *  it is then concatenated into the faces string.   The completed string is then returned to the calling statement.
 */
 std::string SpecialDie::getFaces() {
+	std::string faces = "";
 	char symbol;
 
 	for (int i = 0; i < 20; i++) {

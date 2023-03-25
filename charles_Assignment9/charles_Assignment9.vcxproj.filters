@@ -24,12 +24,18 @@
     <ClCompile Include="SpecialDie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NumberDie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Die.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SpecialDie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberDie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

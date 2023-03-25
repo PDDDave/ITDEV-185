@@ -6,7 +6,7 @@
 class SpecialDie :
     public Die
 {
-    //member functions - both are virtual and will be overwritten
+    //member functions
     std::string roll(); 
     std::string getFaces(); 
 };

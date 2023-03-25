@@ -128,10 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="charles_Assignment9.cpp" />
+    <ClCompile Include="NumberDie.cpp" />
     <ClCompile Include="SpecialDie.cpp" />
     <ClCompile Include="Die.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="NumberDie.h" />
     <ClInclude Include="SpecialDie.h" />
     <ClInclude Include="Die.h" />
   </ItemGroup>

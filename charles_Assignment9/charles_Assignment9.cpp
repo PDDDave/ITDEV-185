@@ -4,22 +4,24 @@
 * Assignment 8
 */
 
+/*This is the main class of Assignment 8*/
+
 #include <iostream>
 #include<iomanip>
-#include "Die.h"
 #include "SpecialDie.h"
+#include "NumberDie.h"
 using namespace std;
 
 //Dice objects
 
 //numbered Dice
-Die* die1 = new Die;
-Die* die2 = new Die;
-Die* die3 = new Die;
-Die* die4 = new Die;
-Die* die5 = new Die;
-Die* die6 = new Die;
-Die* die7 = new Die;
+Die* die1 = new NumberDie;
+Die* die2 = new NumberDie;
+Die* die3 = new NumberDie;
+Die* die4 = new NumberDie;
+Die* die5 = new NumberDie;
+Die* die6 = new NumberDie;
+Die* die7 = new NumberDie;
 
 //dice with special symbols
 Die* special1 = new SpecialDie;
