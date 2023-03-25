@@ -4,7 +4,7 @@
 * Assignment 8
 */
 
-/*This is the main class of Assignment 8*/
+/*This is the main class of Assignment 9*/
 
 #include <iostream>
 #include<iomanip>
